@@ -44,10 +44,9 @@
       );
 
       const signature = await window.crypto.subtle.sign("HMAC", key, enc.encode(serial));
-      const base64url = btoa(String.fromCharCode(...new Uint8Array(signature)))
-        .replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+      const base64 = btoa(String.fromCharCode(...new Uint8Array(signature)));
 
-      document.getElementById("result").textContent = base64url;
+      document.getElementById("result").textContent = base64;
     }
   </script>
 </body>
