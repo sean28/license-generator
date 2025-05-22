@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
   <meta charset="UTF-8" />
   <title>授权码生成器</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 600px; margin: 60px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
-    input, textarea, button { width: 100%; padding: 10px; margin: 10px 0; font-size: 16px; }
-    label { font-weight: bold; }
-    .result { background: #f4f4f4; padding: 10px; border: 1px dashed #aaa; word-break: break-all; }
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 60px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px;}
+    input, textarea, button { width: 100%; padding: 10px; margin: 10px 0; font-size: 16px;}
+    label {font-weight: bold;}
+    .result { background: #f4f4f4; padding: 10px; border: 1px dashed #aaa; word-break: break-all;}
+    .row { display: flex; align-items: center; gap: 10px;}
+    .row label {flex-shrink: 0;}
+    .row button { width: auto; padding: 1.5px 12px;border-radius: 10px;border: none;outline: none;}
   </style>
 </head>
+
 <body>
   <h2>🎟️ 授权码生成器</h2>
 
@@ -21,7 +26,10 @@
 
   <button onclick="generateCode()">生成授权码</button>
 
-  <label>生成结果：</label>
+  <div class="row">
+    <label>生成结果：</label>
+    <button onclick="copyResult()">复制</button>
+  </div>
   <div class="result" id="result">（生成结果将在此显示）</div>
 
   <script>
@@ -48,6 +56,18 @@
 
       document.getElementById("result").textContent = base64;
     }
+
+    function copyResult() {
+      const resultText = document.getElementById("result").textContent;
+      if (!resultText || resultText.includes("将在此显示")) {
+        alert("请先生成授权码！");
+        return;
+      }
+      navigator.clipboard.writeText(resultText)
+        .then(() => alert("授权码已复制到剪贴板！"))
+        .catch(() => alert("复制失败，请手动复制。"));
+    }
   </script>
 </body>
+
 </html>
