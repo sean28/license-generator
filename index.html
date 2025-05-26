@@ -8,8 +8,6 @@
     body { font-family: Arial, sans-serif; max-width: 600px; margin: 60px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px;}
     input, textarea, button { width: 100%; padding: 10px; margin: 10px 0; font-size: 16px;}
     label {font-weight: bold;}
-    .pretty-button {background:linear-gradient(135deg,#4facfe 0%,#4facfe49 100%);color:white;font-weight:bold;border:none;border-radius:15px;padding:12px 20px;font-size:16px;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.2);transition:all 0.2s ease;}
-    .pretty-button:hover {transform:scale(1.03);box-shadow:0 6px 15px rgba(0,0,0,0.25);}   
     .result { background: #f4f4f4; padding: 10px; border: 1px dashed #aaa; word-break: break-all;}
     .row { display: flex; align-items: center; gap: 10px;}
     .row label {flex-shrink: 0;}
@@ -26,7 +24,7 @@
   <label for="secret">授权密钥（Secret Key）：</label>
   <input type="text" id="secret" value="MySuperSecretKey2025" />
 
-  <button  class="pretty-button" onclick="generateCode()">🖲️ 生成授权码</button>
+  <button onclick="generateCode()">生成授权码</button>
 
   <div class="row">
     <label>生成结果：</label>
